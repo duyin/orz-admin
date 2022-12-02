@@ -57,17 +57,6 @@ const HeaderComponent: FC<HeaderProps> = ({ collapsed, toggle }) => {
     localStorage.setItem('locale', key);
   };
 
-  const onChangeTheme = () => {
-    const newTheme = theme === 'dark' ? 'light' : 'dark';
-
-    localStorage.setItem('theme', newTheme);
-    dispatch(
-      setGlobalState({
-        theme: newTheme,
-      }),
-    );
-  };
-
   return (
     <Header className="layout-page-header bg-2" style={{ backgroundColor: token.token.colorBgContainer }}>
       {device !== 'MOBILE' && (
@@ -81,18 +70,6 @@ const HeaderComponent: FC<HeaderProps> = ({ collapsed, toggle }) => {
           <span id="sidebar-trigger">{collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}</span>
         </div>
         <div className="actions">
-          <Tooltip
-            title={formatMessage({
-              id: theme === 'dark' ? 'gloabal.tips.theme.lightTooltip' : 'gloabal.tips.theme.darkTooltip',
-            })}
-          >
-            <span>
-              {createElement(theme === 'dark' ? SunSvg : MoonSvg, {
-                onClick: onChangeTheme,
-              })}
-            </span>
-          </Tooltip>
-          <HeaderNoticeComponent />
           <Dropdown
             menu={{
               onClick: info => selectLocale(info),

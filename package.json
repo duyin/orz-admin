@@ -39,6 +39,9 @@
       "last 1 safari version"
     ]
   },
+  "resolutions": {
+    "esbuild": "0.14.44"
+  },
   "devDependencies": {
     "@emotion/babel-plugin": "^11.3.0",
     "@emotion/babel-preset-css-prop": "^11.2.0",
